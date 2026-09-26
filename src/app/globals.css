@@ -1,26 +1,58 @@
 @import "tailwindcss";
 
 :root {
-  --background: #ffffff;
-  --foreground: #171717;
+  /* Core palette */
+  --color-charcoal: #1c1c1a;
+  --color-charcoal-soft: #2a2a26;
+  --color-ivory: #f7f4ec;
+  --color-ivory-dim: #efe9db;
+  --color-sand: #dcd3c0;
+  --color-sand-deep: #c7bb9f;
+  --color-olive: #3e4a38;
+  --color-olive-deep: #2d362a;
+  --color-brass: #a88a55;
+
+  --background: var(--color-ivory);
+  --foreground: var(--color-charcoal);
 }
 
 @theme inline {
+  --color-charcoal: var(--color-charcoal);
+  --color-charcoal-soft: var(--color-charcoal-soft);
+  --color-ivory: var(--color-ivory);
+  --color-ivory-dim: var(--color-ivory-dim);
+  --color-sand: var(--color-sand);
+  --color-sand-deep: var(--color-sand-deep);
+  --color-olive: var(--color-olive);
+  --color-olive-deep: var(--color-olive-deep);
+  --color-brass: var(--color-brass);
+
   --color-background: var(--background);
   --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
-}
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
-  }
+  --font-sans: "Poppins", ui-sans-serif, system-ui, sans-serif;
+  --container-content: 1280px;
 }
 
 body {
   background: var(--background);
   color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+  font-family: var(--font-sans);
+}
+
+/* Visible keyboard focus, no glow */
+:focus-visible {
+  outline: 2px solid var(--color-olive);
+  outline-offset: 2px;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.001ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.001ms !important;
+    scroll-behavior: auto !important;
+  }
 }
